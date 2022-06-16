@@ -1,0 +1,78 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Camera Viewer</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="{% static 'app/style.css' %}">
+
+</head>
+
+<body>
+    <h1>
+        Ring but Worse
+    </h1>
+    <div class="container">
+        <div class="video">
+            <img style="display: block;-webkit-user-select: none;background-color: hsl(0, 0%, 25%);" src="http://10.153.42.238:8081/" onerror=this.src="{% static 'app/download.jpeg' %}">
+        </div>
+        <div class="card">
+            <form method="POST">
+                {% csrf_token %}
+
+                <div class="input-container">
+                    <input type="mail" required="" name="send" />
+                    <label>Alert Email</label>
+                </div>
+
+                <div class="input-container">
+                    <input type="number" required="" min="1" name="time"/>
+                    <label>Alert Time</label>
+                </div>
+
+                <label>Senstivity: </label>
+                <input type="range" min="3" max="50" value="9" oninput="this.nextElementSibling.value = this.value" name="sense"/>
+                <output>9</output>
+                
+            
+                <button class="button-55 " type="submit">Submit</button>
+            </form>
+        </div>
+    </div>
+        <script>
+  
+
+
+// move gradient
+inputRange.addEventListener('input', function() {
+    //Change slide thumb color on way up
+    if (this.value > 20) {
+        inputRange.classList.add('ltpurple');
+    }
+    if (this.value > 40) {
+        inputRange.classList.add('purple');
+    }
+    if (this.value > 60) {
+        inputRange.classList.add('pink');
+    }
+
+    //Change slide thumb color on way down
+    if (this.value < 20) {
+        inputRange.classList.remove('ltpurple');
+    }
+    if (this.value < 40) {
+        inputRange.classList.remove('purple');
+    }
+    if (this.value < 60) {
+        inputRange.classList.remove('pink');
+    }
+});
+        </script>
+    
+    
+</body>
+
+</html>

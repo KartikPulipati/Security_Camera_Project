@@ -26,8 +26,8 @@ while 1:
     if len(faces) > 0:
         cv2.imwrite(f"frame{count}.jpg", frame)
 
-        Sender_Email = "verficationemailbluecoder@gmail.com"
-        Password = "jgpzwoarxcgqcrgs"
+        Sender_Email = "[Insert_Here]"
+        Password = "[Insert_Here]"
 
         newMessage = EmailMessage()    #creating an object of EmailMessage class
         newMessage['Subject'] = "Camera Alert" #Defining email subject
